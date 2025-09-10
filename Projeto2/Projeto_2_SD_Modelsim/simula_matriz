@@ -1,0 +1,15 @@
+# Inicia a simulação da entidade de mais alto nível
+vsim work.matrix_leds
+
+# Adiciona todos os sinais à janela de ondas
+add wave -r /matrix_leds/*
+
+# 1.
+force SW "0001" 0.5 ns
+
+# 2. 
+force key "100" 0.6 ns
+
+
+# 3. Roda a simulação pelo tempo restante para ver o programa executar
+run 2 ns
