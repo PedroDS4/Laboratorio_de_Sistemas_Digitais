@@ -31,13 +31,9 @@ S_{11} &= SW_{3}\,\overline{SW_{2}}\, SW_{1}\, SW_{0} \\
 S_{12} &= SW_{3}\, SW_{2}\,\overline{SW_{1}}\,\overline{SW_{0}} \\
 S_{13} &= SW_{3}\, SW_{2}\,\overline{SW_{1}}\, SW_{0} \\
 S_{14} &= SW_{3}\, SW_{2}\, SW_{1}\,\overline{SW_{0}} \\
-S_{15} &= SW_{3}\, SW_{2}\, SW_{1}\, SW_{0} \\
+S_{15} &= SW_{3}\, SW_{2}\, SW_{1}\, SW_{0}
 \end{aligned}
 \]
-
-A matriz de leds está indicada na imagem abaixo:
-
-![Definição da matriz de leds](figuras/Matriz.drawio.png)
 
 As equações para cada um dos 35 leds úteis, a partir dos sinais auxiliares \(S_i\), são:
 
@@ -80,6 +76,8 @@ M_{86} &= S_{0} + S_{1} + S_{2} + S_{3} + S_{4} + S_{5} + S_{6} + S_{8} + S_{10}
 M_{87} &= S_{2} + S_{10} + S_{13}
 \end{aligned}
 \]
+
+---
 
 ### Multiplexador Simples
 
