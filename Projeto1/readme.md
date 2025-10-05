@@ -89,7 +89,7 @@ Isso pode ser feito com álgebra booleana, obtendo as expressões lógicas de ca
 _Tabela: Tabela verdade para display de 7 segmentos (0 a 9)_
 
 Expressões lógicas simplificadas (via mapa de Karnaugh):
-
+$$
 - \( a = A + A'C +B'D' + BD \)
 - \( b = A + C'D' + CD + A'B' \)
 - \( c = A + BD' + CD + C' \)
@@ -97,7 +97,7 @@ Expressões lógicas simplificadas (via mapa de Karnaugh):
 - \( e = B'C'D' + AC + AB + CD' \)
 - \( f = A + C'D' + BD' + BC' \)
 - \( g = A + BC' + CD' + B'C \)
-
+$$
 O CI 74HC48 realiza esta conversão para um display catódico, mas como não está disponível no Tinkercad, utilizou-se um Arduino UNO.
 
 ## Materiais e Métodos
