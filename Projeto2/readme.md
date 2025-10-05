@@ -14,7 +14,7 @@ A lógica dos leds da matriz pode ser obtida com lógica combinacional. Monta-se
 
 A chave de entrada \(SW\) pode ser mapeada para sinais produtos que serão utilizados nas expressões dos leds, assim:
 
-\[
+$$
 \begin{aligned}
 S_{0}  &= \overline{SW_{3}}\,\overline{SW_{2}}\,\overline{SW_{1}}\,\overline{SW_{0}} \\
 S_{1}  &= \overline{SW_{3}}\,\overline{SW_{2}}\,\overline{SW_{1}}\, SW_{0} \\
@@ -33,11 +33,11 @@ S_{13} &= SW_{3}\, SW_{2}\,\overline{SW_{1}}\, SW_{0} \\
 S_{14} &= SW_{3}\, SW_{2}\, SW_{1}\,\overline{SW_{0}} \\
 S_{15} &= SW_{3}\, SW_{2}\, SW_{1}\, SW_{0}
 \end{aligned}
-\]
+$$
 
 As equações para cada um dos 35 leds úteis, a partir dos sinais auxiliares \(S_i\), são:
 
-\[
+$$
 \begin{aligned}
 M_{23} &= S_{5} + S_{7} + S_{11} \\
 M_{24} &= S_{0} + S_{2} + S_{3} + S_{5} + S_{7} + S_{8} + S_{9} \\
@@ -75,7 +75,7 @@ M_{85} &= S_{0} + S_{1} + S_{2} + S_{3} + S_{5} + S_{6} + S_{8} + S_{9} + S_{10}
 M_{86} &= S_{0} + S_{1} + S_{2} + S_{3} + S_{4} + S_{5} + S_{6} + S_{8} + S_{10} + S_{11} + S_{12} + S_{13} + S_{14} \\
 M_{87} &= S_{2} + S_{10} + S_{13}
 \end{aligned}
-\]
+$$
 
 ---
 
@@ -100,15 +100,15 @@ A tabela verdade é:
 
 Expressão em soma de produtos:
 
-\[
+$$
 Y = S' I_0 I_1' + S' I_0 I_1 + S I_0' I_1 + S I_0 I_1
-\]
+$$
 
 Simplificando usando álgebra booleana:
 
-\[
+$$
 Y = S' I_0 (I_1' + I_1) + S I_1 (I_0' + I_0) = S' I_0 + S I_1
-\]
+$$
 
 ### Multiplexador de 8 Canais
 
@@ -142,7 +142,7 @@ Tabela verdade:
 
 Expressões lógicas para as saídas \(d\):
 
-\[
+$$
 \begin{cases}
 d_0 = e_n \cdot s_2' \cdot s_1' \cdot s_0' \\
 d_1 = e_n \cdot s_2' \cdot s_1' \cdot s_0 \\
@@ -153,7 +153,7 @@ d_5 = e_n \cdot s_2 \cdot s_1' \cdot s_0 \\
 d_6 = e_n \cdot s_2 \cdot s_1 \cdot s_0' \\
 d_7 = e_n \cdot s_2 \cdot s_1 \cdot s_0 \\
 \end{cases}
-\]
+$$
 
 ## Materiais e Métodos
 
@@ -179,12 +179,12 @@ A simulação na FPGA foi realizada, simulando os números de 0 a 9. Observou-se
 
 Para a simulação, foi criado um arquivo script .do definindo:
 
-\[
+$$
 \begin{cases}
 SW = 0001 \\
 key = 001
 \end{cases}
-\]
+$$
 
 Assim, a matriz de leds mostraria o padrão visual do número 1, como confirmado nas imagens abaixo:
 
