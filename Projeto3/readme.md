@@ -7,7 +7,7 @@ Link da implementação virtual: https://www.tinkercad.com/things/laWzrBB5k3X-pr
 
 Para o terceiro projeto da disciplina, foi proposto a elaboração do projeto de uma FSM em protoboard, utilizando os CI's comerciais de flip-flops JK ou D. A FSM é mostrada abaixo:
 
-![Esquemático da FSM proposta](figuras/fsm.png)
+![Esquemático da FSM proposta](figuras/FSM.png)
 
 ## Referencial Teórico
 
