@@ -21,9 +21,9 @@ O flip-flop J-K tem a prioridade de aprimorar o funcionamento circuito flip-flop
 
 A equação característica do Flip-Flop JK é:
 
-\[
+$$
 Q^{i+1} = J\ \overline{Q^i} + \overline{K}\ Q^{i}
-\]
+$$
 
 Outra característica interessante do Flip-Flop JK é que ele pode dividir a frequência do sinal digital da entrada, funcionando como divisor de frequência.
 
@@ -33,9 +33,9 @@ Outra característica interessante do Flip-Flop JK é que ele pode dividir a fre
 
 O flip-flop D é um circuito utilizado em registradores, com a função de armazenar bits seletivamente [tocci]. A equação característica do flip-flop D é:
 
-\[
+$$
 Q^{i+1} = D \cdot clk^{\uparrow}
-\]
+$$
 
 Ou seja, a saída é igual à entrada nas bordas de subida do clock.
 
@@ -61,6 +61,8 @@ Para mostrar o número no display de 7 segmentos, é necessário converter de BC
 **Tabela:** Tabela verdade para display de 7 segmentos (0 a 9)
 
 A lógica pode ser obtida e simplificada usando mapas de Karnaugh, resultando nas expressões:
+
+
 
 - \( a = A + A'C +B'D' + BD \)
 - \( b = A + C'D' + CD + A'B' \)
@@ -110,18 +112,18 @@ A MDE simplificada é mostrada abaixo:
 
 A implementação do circuito utilizou a seguinte codificação de estados:
 
-\[
+$$
 \begin{cases}
 A = 00 \\
 D = 01 \\
 E = 10 \\
 C = 11
 \end{cases}
-\]
+$$
 
 A lógica de sequência é feita por sinais intermediários dos produtos entre os sinais de entrada \(u, y\) e os do estado atual \(S_1, S_0\):
 
-\[
+$$
 \begin{cases}
 z = S_0 \\
 T_1 = uS_0 + yS_1 \\
@@ -129,7 +131,7 @@ T_2 = uS_1'S_0' + u'y'S_0 + y'S_1 \\
 S_0 = f_D(T_0) \\
 S_1 = f_D(T_1)
 \end{cases}
-\]
+$$
 
 Onde \(f_D\) é a função interna do flip-flop D. O circuito final está abaixo:
 
