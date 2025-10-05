@@ -45,9 +45,9 @@ _Tabela: Tabela verdade para entrada de 4 bits_
 
 Com isso, a condição $Y$ pode ser expressa como soma de produtos:
 
-\[
+$$
 Y = S_3\overline{S_2}S_1\overline{S_0} + S_3\overline{S_2}S_1S_0 + S_3S_2\overline{S_1}\overline{S_0} + S_3S_2\overline{S_1}S_0 + S_3S_2S_1\overline{S_0} + S_3S_2S_1S_0
-\]
+$$
 
 Simplificando via mapa de Karnaugh:
 
@@ -62,9 +62,9 @@ _Tabela: Mapa de Karnaugh_
 
 Deste mapa, a saída Y é dada por:
 
-\[
+$$
 Y = S_3S_2 + S_3S_1 = S_3(S_1 + S_2)
-\]
+$$
 
 Esse circuito pode ser implementado com uma porta OR e uma porta AND apenas.
 
