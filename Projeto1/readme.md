@@ -9,7 +9,7 @@ https://www.tinkercad.com/things/3nxzd4ioqzL-projeto1sdsomadorbcd7segshared
 Para o primeiro projeto da disciplina, foi proposto a elaboração do projeto de um somador BCD para ser desenvolvido em protoboard, utilizando CI's comerciais disponíveis no laboratório.  
 O esquemático do somador é mostrado abaixo. Sua implementação será discutida a seguir e está disponibilizada no livro [tocci].
 
-![Esquemático do Projeto do Somador BCD](figuras/somador_bcd.png)
+![Esquemático do Projeto do Somador BCD](figuras/Somador_BCD.png)
 
 ## Referencial Teórico
 
