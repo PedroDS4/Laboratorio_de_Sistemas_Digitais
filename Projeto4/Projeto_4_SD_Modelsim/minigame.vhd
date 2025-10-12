@@ -49,30 +49,30 @@ architecture CKT of minigame is
 
 
     component decoder_4x8
-   port (
+Â   port (
         en : in std_logic;
         s : in std_logic_vector(2 downto 0);
         d : out std_logic_vector(7 downto 0)
 );
-    end component;
+Â  Â  end component;
 
   
     component subtrator_3_bit
-   port(
+Â   port(
 	A,B : in std_logic_vector(2 downto 0);
 	C_0 : out std_logic;
-	S :  out std_logic_vector(2 downto 0)
+	S :Â  out std_logic_vector(2 downto 0)
 	);
-     end component; 
+Â     end component;Â 
 
 
    component somador_3_bits
-   port(
+Â   port(
 	A,B : in std_logic_vector(2 downto 0);
 	C_0 : out std_logic;
-	S :  out std_logic_vector(2 downto 0)
+	S :Â  out std_logic_vector(2 downto 0)
 	);
-     end component;
+Â     end component;
 
 
   component ffd
@@ -97,9 +97,9 @@ architecture CKT of minigame is
   signal Linha0, Linha1, Linha2, Linha3, Linha4, Linha5, Linha6, Linha7: std_logic_vector(7 downto 0);
 
   
-  --Sinais Intermediários--
+  --Sinais IntermediÃ¡rios--
   
-  signal x,y, one_or_zero_x, one_or_zero_y, x_sum, x_sub, y_sum, y_sub, x_future, y_future, x_sum_or_sub, y_sum_or_sub: std_logic_vector(2 downto 0);
+  signal x,y, x_sum, x_sub, y_sum, y_sub, x_future, y_future, x_sum_or_sub, y_sum_or_sub: std_logic_vector(2 downto 0);
   signal Sl_one_or_zero_y, Sl_one_or_zero_x: std_logic;
   signal vec_x, vec_y: std_logic_vector(7 downto 0);
 
@@ -204,7 +204,7 @@ begin
 	
 
 
-   --Inicializando as colunas que são nulas por padrão
+   --Inicializando as colunas que sÃ£o nulas por padrÃ£o
 	--Coluna 1
 	M1(7) <= vec_x(7) and vec_y(0);
         M1(6) <= vec_x(6) and vec_y(0);
@@ -317,5 +317,6 @@ begin
 		d => LEDG
 	);
    
+
 
 end CKT;
