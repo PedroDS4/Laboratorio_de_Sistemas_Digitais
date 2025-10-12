@@ -1,4 +1,3 @@
-//Second LED
 // Definição dos pinos de entrada e saída
 #define IN0_PIN 2
 #define IN1_PIN 3
