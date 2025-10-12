@@ -1,0 +1,44 @@
+# Inicia a simulação
+vsim work.minigame
+
+# Adiciona os sinais
+add wave -r /minigame/*
+
+# Inicializa o clock com período de 2ns (1ns alto, 1ns baixo)
+# Período de 0.5ns (0.25ns alto, 0.25ns baixo)
+force clk 0 0ns, 1 0.125ns -repeat 0.25ns
+
+# Passo 1: Reset do sistema
+# Força o reset por um curto período de tempo
+force clr 1 0ns
+force clr 0 0.1ns
+
+# Passo 2: Movimento para a esquerda (SW(0) = 1)
+# O primeiro movimento deve ocorrer após o primeiro pulso de clock
+# O clk sobe em 0.125ns, então a entrada deve mudar antes disso
+force SW "0001" 0.1ns
+force key "111" 0.1ns
+
+# Passo 3: Movimento para direita (SW(3) = 1)
+# Agora que o LED está em (1,0), vamos movê-lo para baixo
+# Dê tempo para o primeiro pulso de clock (0.25ns) e a estabilização
+force SW "1000" 0.3ns
+force key "000" 0.3ns
+
+
+# Passo 4: Movimento para cima (SW(1) = 1)
+force SW "0010" 0.5ns
+force key "000" 0.5ns
+
+
+# Passo 5: Movimento para baixo (SW(2) = 1)
+force SW "0100" 0.7ns
+force key "000" 0.7ns
+
+
+# Passo 6: Retorna os botões para 0 para ver o LED parado
+force SW "0000" 0.9ns
+force key "000" 0.9ns
+
+# Roda a simulação por tempo suficiente
+run 1 ns
