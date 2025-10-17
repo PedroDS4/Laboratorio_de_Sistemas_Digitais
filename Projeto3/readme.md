@@ -1,4 +1,4 @@
-Link da implementação virtual: https://www.tinkercad.com/things/laWzrBB5k3X-projeto2sdlabmdetinkercadshared
+Link da implementação virtual no TinkerCAD: https://www.tinkercad.com/things/laWzrBB5k3X-projeto2sdlabmdetinkercadshared
 
 
 # Prática 3: Máquina de Estados Finitos
