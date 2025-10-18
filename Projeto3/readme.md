@@ -139,16 +139,32 @@ Onde \(f_D\) é a função interna do flip-flop D. O circuito final está abaixo
 
 ## Implementação em Protoboard
 
-A montagem foi feita em protoboard, conectando o CI 7483 para soma binária e o CI 7447 para conversão BCD para display de 7 segmentos, com resistores de limitação. A alimentação foi realizada via fonte 5V.
+Para a montagem em protoboard, foram utilizados os CI's destacados na seção de materiais e métodos, onde inicialmente foram feitas os termos formados a partir de portas $AND$, depois conectados os flip-flops, e por último a porta $OR$, que resultou nos estados e nas saídas na forma de soma de produtos.
+Assim
 
-O circuito foi montado de acordo com o diagrama do somador BCD, conectando as entradas de soma ao CI 74HC283 e, caso o valor excedesse 6, utilizou-se um CI 74HC283 auxiliar para somar 6. O valor era corrigido de acordo com um circuito auxiliar com portas OR e AND, mostrado na figura 2. Assim, o resultado do somador auxiliar era convertido para ser exibido no display a partir do CI 7448.
+$$
+    \begin{cases}
+        t_1 = uS_0 \\
+        t_2 = yS_1 \\
+        t_3 = uS_1' \\
+        t_4 = u'y' \\
+        t_5 = y'S_1
+    \end{cases}
+$$
 
-Originalmente era necessário um segundo LED para exibir "1" ou "0" ao exceder 9, mas só foi preciso um LED para validação.
+então os estados e as saidas foram dados por
 
-A Figura 2 mostra a implementação em protoboard:
+$$
+    \begin{cases}
+        z = S_0 \\
+        S_0 = t_1 + t_2 \\
+        S_1 = t_3 \cdot S_0' + t_4 \cdot S_0 + t_5
+    \end{cases}
+$$
 
-![Implementação - Vista 1](figuras/bcd_proto1.png)
-![Implementação - Vista 2](figuras/bcd_proto2.png)
+Assim fica fácil ver porque o número necessário de portas $AND$ foram 7, e o número necessário de portas $OR$ foram 3, além do número de portas $NOT$ ser 2, ja que os estados barrados foram tirados do próprio flip-flop D.
+Porém a implementação em protoboard não funcionou como o esperado, devido a flutuações e sensibilidade dos jumpers utilizados.
+
 
 ## Implementação no Tinkercad
 
