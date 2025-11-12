@@ -16,27 +16,27 @@ Para a concepção deste projeto RTL, precisamos de alguns blocos operacionais p
 ### Filtro FIR
 Um filtro FIR (Finite Impulse Response) recebe essa nomeclatura porque sua resposta ao impulso tem suporte temporal finito, podendo ser facilmente implementado digitalmente por uma operação de convolução, seja \(y[k]\) o sinal a ser filtrado e \(h[k]\) a resposta ao impulso do filtro, o sinal filtrado \(x[k]\) será dado pela equação:
 
-\[
+$$
 x[k] = y[k] \ast c[k] = \sum_{n = 0}^{M} c[n] y[k-n]
-\]
+$$
 
 para o caso com apenas três coeficientes \((M = 3)\), temos
 
-\[
+$$
 x[k] = y[k] \ast c[k] = \sum_{n = 0}^{2} c[n] y[k-n] = c[0] y[k] + c[1] y[k-1] + c[2]y[k-2]
-\]
+$$
 
 seja ainda o filtro dado na forma vetorial por
 
-\[
+$$
 c[k] = [c_0,c_1,c_2]
-\]
+$$
 
 finalmente obtemos
 
-\[
+$$
 x[k] = y[k] \ast h[k] = c_0 \ y[k] + c_1 \ y[k-1] + c_2 \ y[k-2]
-\]
+$$
 
 Os coeficientes do filtro serão previamente armazenados nos registradores e serão usados na operação de filtragem.
 
