@@ -1,0 +1,59 @@
+# Inicia a simulação
+vsim work.filtrofir
+
+# Adiciona os sinais
+add wave -r /filtrofir/*
+
+
+# Inicializa o clock com período de 2ns (1ns alto, 1ns baixo)
+# Período de 0.5ns (0.25ns alto, 0.25ns baixo)
+force clk 0 0ns, 1 0.125ns -repeat 0.25ns
+
+
+force clr_r 1 0ns
+force en_cod 0 0ns
+force ld_r 0 0ns
+
+
+force ld_out "1" 0ns
+
+
+force clr_r 0 0.05ns
+
+
+force s_cod "00" 0.1ns
+force en_cod '1' 0.1ns
+force c "0001" 0.1ns
+
+force en_cod '0' 0.15ns
+
+
+
+force s_cod "01" 0.3ns
+force en_cod '1' 0.3ns
+force c "0001" 0.3ns
+
+force en_cod '0' 0.4ns
+
+
+
+force s_cod "10" 0.5ns
+force en_cod '1' 0.5ns
+force c "0001" 0.5ns
+
+force en_cod '0' 0.65ns
+
+
+force y "0001" 0.8ns
+force ld_r "1" 0.8ns
+
+
+
+force y "0010" 1.1ns
+force ld_r "1" 1.1ns
+
+
+
+
+# Roda a simulação por tempo suficiente
+run 3 ns
