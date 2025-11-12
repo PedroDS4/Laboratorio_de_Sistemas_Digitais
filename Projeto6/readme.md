@@ -75,6 +75,7 @@ Produtos parciais corretamente alinhados e ordenados para multiplicação binár
 
 Agora temos as expressões para cada bit de saída do resultado da multiplicação:
 
+$$
 \begin{cases}
 P_0 = A_0B_0 \\  
 P_1 = A_1B_0 + A_0B_1 \\  
@@ -86,6 +87,7 @@ P_6 = A_4B_2 + A_3B_3 + A_2B_4 \\
 P_7 = A_4B_3 + A_3B_4 \\  
 P_8 = A_4B_4 \\  
 \end{cases}
+$$
 
 Porém as somas representadas nesses bits de saída precisam ser feitas utilizando somadores completos, e não por portas OR, pois podem carregar informação de carry in e carry out.
 
@@ -140,9 +142,8 @@ Algoritmo **Double Dabble** utilizado para conversão binário → BCD.
 | 8 | 1 | 0 | 0 | 0 | 1 | 1 | 1 | 1 | 1 | 1 | 1 |
 | 9 | 1 | 0 | 0 | 1 | 1 | 1 | 1 | 1 | 0 | 1 | 1 |
 
-
-\begin{cases}
 $$
+\begin{cases}
 a = A + A'C +B'D' + BD \\
 b = A + C'D' + CD + A'B' \\
 c = A + BD' + CD + C' \\
@@ -150,9 +151,8 @@ d = A + B'C'D' + CD' + A'B'C + BC'D \\
 e = B'C'D' + AC + AB + CD' \\
 f = A + C'D' + BD' + BC' \\
 g = A + B + C
-$$
 \end{cases}
-
+$$
 
 ---
 
@@ -227,6 +227,7 @@ Os códigos VHDL desenvolvidos para o projeto estão disponíveis no GitHub:
 
 Foi então realizada a simulação na FPGA, onde os pinos foram mapeados de acordo com a imagem **Figura Filtro_FIR**, e começamos definindo os coeficientes do filtro, com os seguintes comandos:
 
+$$
 \begin{cases}
     c_{0,1,2} = SW[11:8]  \rightarrow 0001 \\
     s_{cod} = SW[17:16] \rightarrow 00 \\
@@ -238,16 +239,18 @@ Foi então realizada a simulação na FPGA, onde os pinos foram mapeados de acor
     s_{cod} = SW[17:16] \rightarrow 10 \\
     en_{cod} = SW[12] \rightarrow 1 \\
 \end{cases}
+$$
 
 depois de definir todos os coeficientes como sendo $c[k] = 1$, finalmente colocamos a entrada $y[k]$ e a carregamos, por fim carregando a saída
 
+$$
 \begin{cases}
     y  = SW[7:4] \rightarrow 0001 \\
     ld_r SW[13] \rightarrow 1 \\
     ld_{out} = SW[14] \rightarrow 1 \\
     y  = SW[7:4] \rightarrow 0010 \\
 \end{cases}
-
+$$
 
 Então o sinal $y[k]$ ficou:
 
