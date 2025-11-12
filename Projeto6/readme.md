@@ -75,17 +75,18 @@ Produtos parciais corretamente alinhados e ordenados para multiplicação binár
 
 Agora temos as expressões para cada bit de saída do resultado da multiplicação:
 
-$$
-1. \( P_0 = A_0B_0 \)  
-2. \( P_1 = A_1B_0 + A_0B_1 \)  
-3. \( P_2 = A_2B_0 + A_1B_1 + A_0B_2 \)  
-4. \( P_3 = A_3B_0 + A_2B_1 + A_1B_2 + A_0B_3 \)  
-5. \( P_4 = A_0B_4 + A_3B_1 + A_2B_2 + A_1B_3 + A_4B_0 \)  
-6. \( P_5 = A_3B_2 + A_2B_3 + A_4B_1 \)  
-7. \( P_6 = A_4B_2 + A_3B_3 + A_2B_4 \)  
-8. \( P_7 = A_4B_3 + A_3B_4 \)  
-9. \( P_8 = A_4B_4 \)  
-$$
+\begin{cases}
+P_0 = A_0B_0 \\  
+P_1 = A_1B_0 + A_0B_1 \\  
+P_2 = A_2B_0 + A_1B_1 + A_0B_2 \\  
+P_3 = A_3B_0 + A_2B_1 + A_1B_2 + A_0B_3 \\  
+P_4 = A_0B_4 + A_3B_1 + A_2B_2 + A_1B_3 + A_4B_0 \\  
+P_5 = A_3B_2 + A_2B_3 + A_4B_1 \\  
+P_6 = A_4B_2 + A_3B_3 + A_2B_4 \\  
+P_7 = A_4B_3 + A_3B_4 \\  
+P_8 = A_4B_4 \\  
+\end{cases}
+
 Porém as somas representadas nesses bits de saída precisam ser feitas utilizando somadores completos, e não por portas OR, pois podem carregar informação de carry in e carry out.
 
 ---
@@ -105,21 +106,21 @@ _Figura 4: Registrador de Carga Paralela_
 | 1  | 1  | 0  | 0  | 1  | 0  | 0  |
 | 1  | 1  | 1  | 1  | 0  | 0  | 0  |
 
-\[
+$$
 \begin{cases}
 d_0 = e_n \cdot s_1' \cdot s_0' \\
 d_1 = e_n \cdot s_1' \cdot s_0 \\
 d_2 = e_n \cdot s_1 \cdot s_0' \\
 d_3 = e_n \cdot s_1 \cdot s_0
 \end{cases}
-\]
+$$
 
 ---
 
 ### Conversor BIN→BCD de 4 Dígitos
-\[
+$$
 10000\ 00000_{bin} = 0101\ 0001\ 0010_{BCD} = 512_{decimal}
-\]
+$$
 
 Algoritmo **Double Dabble** utilizado para conversão binário → BCD.
 
@@ -227,7 +228,6 @@ Os códigos VHDL desenvolvidos para o projeto estão disponíveis no GitHub:
 Foi então realizada a simulação na FPGA, onde os pinos foram mapeados de acordo com a imagem **Figura Filtro_FIR**, e começamos definindo os coeficientes do filtro, com os seguintes comandos:
 
 \begin{cases}
-    $
     c_{0,1,2} = SW[11:8]  \rightarrow 0001 \\
     s_{cod} = SW[17:16] \rightarrow 00 \\
     en_{cod} = SW[12] \rightarrow 1 \\
@@ -237,18 +237,15 @@ Foi então realizada a simulação na FPGA, onde os pinos foram mapeados de acor
     c_{0,1,2} = SW[11:8] \rightarrow 0001 \\
     s_{cod} = SW[17:16] \rightarrow 10 \\
     en_{cod} = SW[12] \rightarrow 1 \\
-    $
 \end{cases}
 
 depois de definir todos os coeficientes como sendo $c[k] = 1$, finalmente colocamos a entrada $y[k]$ e a carregamos, por fim carregando a saída
 
 \begin{cases}
-    $
     y  = SW[7:4] \rightarrow 0001 \\
     ld_r SW[13] \rightarrow 1 \\
     ld_{out} = SW[14] \rightarrow 1 \\
     y  = SW[7:4] \rightarrow 0010 \\
-    $
 \end{cases}
 
 
