@@ -1,0 +1,198 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+
+entity sec_ele is
+   port (
+	    w_data : in std_logic_vector(7 downto 0);
+	    play, rec: in std_logic;
+	    clk : in std_logic;
+	    clr: in std_logic;	
+	    em, fu: out std_logic;
+	    HEX0: out std_logic_vector(6 downto 0);
+	    HEX1: out std_logic_vector(6 downto 0);
+            HEX2: out std_logic_vector(6 downto 0);
+	    HEX3: out std_logic_vector(6 downto 0)
+);
+end sec_ele;
+
+
+
+
+
+architecture CKT of sec_ele is
+
+   signal ck: std_logic;	
+   
+   signal BCD, BCD_DATA: std_logic_vector(11 downto 0);
+   signal r_data, addr_r_8bits: std_logic_vector(7 downto 0);
+   signal addr_r: std_logic_vector(3 downto 0);
+   signal en_rd, en_wr, count_rd, count_wr: std_logic;
+   signal em_s, fu_s, not_play, not_rec: std_logic;
+
+
+    component  bin8_to_bcd3_expanded
+    port(
+        bin : in  std_logic_vector(7 downto 0);
+        bcd : out std_logic_vector(11 downto 0)
+    );
+    end component;
+
+    component display7
+        port (
+        A, B, C, D : in std_logic;
+        l: out std_logic_vector(6 downto 0)
+    );
+    end component;
+
+    component ck_div
+	port(
+	ck_in  : in  std_logic;
+	ck_out : out  std_logic
+	);
+    end component;
+
+    component datapath
+	port (
+	w_data : in std_logic_vector(7 downto 0);
+	en_rd, en_wr, count_rd, count_wr: in std_logic;
+	clk : in std_logic;
+        clr : in std_logic;
+	em, fu: out std_logic;
+	addr_r: out std_logic_vector(3 downto 0);
+	r_data: out std_logic_vector(7 downto 0)
+);
+	end component; 
+
+
+	component controller
+	port(
+        clk         : in std_logic;
+        clr         : in std_logic;
+        en_rd       : out std_logic;
+        en_wr       : out std_logic;
+	play	    : in std_logic;
+	rec	    : in std_logic;
+	cnt_rd	    : out std_logic;
+	cnt_wr	    : out std_logic;
+	em	    : in std_logic;
+	fu	    : in std_logic
+    );
+	end component;
+
+
+
+begin
+
+
+   
+     
+	FREQ_DIV: ck_div  
+        port map(
+		  ck_in => clk,
+		  ck_out => ck
+	 );
+
+	not_play <= not(play);
+	not_rec <= not(rec);
+	
+
+	
+	CONTROLLER_CIRCUIT: controller
+	port map(
+	clk => ck,
+	clr => clr,
+	en_rd => en_rd,
+   	en_wr => en_wr,
+	play => play,
+	rec => rec,
+	cnt_rd => count_rd,
+	cnt_wr => count_wr,
+	em => em_s,
+	fu => fu_s
+	);
+
+
+	DATAPATH_CIRCUIT: datapath 
+	   port map(
+     	   w_data => w_data,
+	   en_rd => en_rd,
+	   en_wr => en_wr,
+	   count_rd => count_rd,
+	   count_wr => count_wr,
+	   clk => ck,
+	   clr => clr,
+	   em => em_s,
+	   fu => fu_s,
+	   addr_r => addr_r,
+	   r_data => r_data
+	   );
+	
+	
+     em <= em_s;
+     fu <= fu_s;
+  
+
+	BCD_R_DATA: bin8_to_bcd3_expanded port map(
+     	bin => r_data,
+     	bcd => BCD_DATA
+	);
+	
+   
+     --- Exibi  o do valor lido ---
+     --- A: bit mais significativo ---
+     LED0: display7 port map(
+	A => BCD_DATA(3),
+	B => BCD_DATA(2),
+	C => BCD_DATA(1),
+	D => BCD_DATA(0),
+	l => HEX0
+	);
+	   
+
+     LED1: display7 port map(
+	A => BCD_DATA(7),
+	B => BCD_DATA(6),
+	C => BCD_DATA(5),
+	D => BCD_DATA(4),
+	l => HEX1
+	);
+	   
+     LED2: display7 port map(
+	A => BCD_DATA(11),
+	B => BCD_DATA(10),
+	C => BCD_DATA(9),
+	D => BCD_DATA(8),
+	l => open
+	);
+  
+
+
+   addr_r_8bits <= "0000" & addr_r;
+
+   BCD_ADDR_R: bin8_to_bcd3_expanded port map(
+     	bin => addr_r_8bits,
+	bcd => BCD
+	);
+	
+   
+     --- Exibi  o do valor lido ---
+     --- A: bit mais significativo ---
+      LED_MSG: display7 port map(
+	A => BCD(3),
+	B => BCD(2),
+	C => BCD(1),
+	D => BCD(0),
+	l => HEX2
+	);
+
+      LED_MSG_2: display7 port map(
+	A => BCD(7),
+	B => BCD(6),
+	C => BCD(5),
+	D => BCD(4),
+	l => HEX3
+	);
+
+
+end CKT;
