@@ -1,9 +1,8 @@
 # Prática 8: Secretária Eletrônica
 
 ## Introdução
-O oitavo e último projeto proposto foi fazer, em VHDL, a implementação de uma secretária eletrônica para reprodução e gravação automática de mensagens, utilizando estruturas de dados. 
+O oitavo e último projeto proposto foi fazer, em VHDL, a implementação de uma secretária eletrônica para reprodução e gravação automática de mensagens, utilizando estruturas de dados como banco de registradores, e contadores com máquina de estados para fazerem a transição das reproduções e gravações.
 
-![Esquemático da Secretária Eletrônica](figuras/sec_ele.png)
 
 ## Referencial Teórico
 Para a concepção deste projeto RTL, precisamos de alguns blocos operacionais para as operações a serem executadas, e também saber como funciona a lógica de um filtro FIR, como será discutido abaixo.
