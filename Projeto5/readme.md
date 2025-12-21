@@ -5,8 +5,6 @@
 ## Introdução
 Para o quinto projeto da disciplina, foi proposto a elaboração de um projeto RTL de uma **máquina de vendas**. A máquina possui duas entradas de dados, sendo uma para informar o valor da moeda inserida (**A[3:0]**) e uma outra para entrar com o valor do produto (**S[3:0]**). Também conta uma entrada para indicar quando uma moeda foi depositada (**c=1**) e uma saída (**d=1**) para liberar o produto. O circuito deve ser implementado através de circuitos integrados comerciais e pode fazer uso de quaisquer CIs da série 7400.
 
-![Esquemático do Projeto da Máuqina de Vendas](figuras/lab5.png)
-
 ---
 
 ## Referencial Teórico
