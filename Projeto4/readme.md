@@ -2,9 +2,7 @@
 
 ## Introdução
 
-O segundo projeto proposto foi o desenvolvimento, em **VHDL** e a implementação em **FPGA**, da lógica de uma **matriz de LEDs**, cujo esquemático é mostrado abaixo:
-
-![Esquemático do Projeto do Minigame](figuras/esquematico_minigame.png)
+O segundo projeto proposto foi o desenvolvimento, em **VHDL** e a implementação em **FPGA**, da lógica de uma **matriz de LEDs**, para controlar um pixel a se mover entre as posições dessa matriz.
 
 ## Referencial Teórico
 
