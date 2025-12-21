@@ -246,4 +246,4 @@ essa implementação é mostrada abaixo
 e a implementação foi validada com o professor.
 
 ## Conclusão
-O quinto projeto foi testado com sucesso, tanto na simulação temporal no modelsim tanto na FPGA, com o funcionamento confirmado pelo professor, e assim foi implementado o filtro FIR digital.
+O sexto projeto foi testado com sucesso, tanto na simulação temporal no modelsim tanto na FPGA, com o funcionamento confirmado pelo professor, e assim foi implementado o filtro FIR digital.
