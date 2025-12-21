@@ -1,11 +1,7 @@
 # Prática 6: Filtro FIR
 
 ## Introdução
-O sexto projeto proposto foi fazer, em VHDL, a implementação de um filtro digital do tipo FIR (Finite Impulse Response), com 3 Taps (coeficientes).
-
-![Esquemático do Filtro FIR Digital](figuras/Filtro_FIR.png)
-
-_Figura 1: Esquemático do Filtro FIR Digital_
+O sexto projeto proposto foi fazer, em VHDL, a implementação de um filtro digital do tipo FIR (Finite Impulse Response), com 3 Taps (coeficientes), utilizando os conceitos aprendidos na disciplina.
 
 ---
 
