@@ -1,3 +1,4 @@
+script para simulação do VHDL: simula_sec_ele.do
 # Prática 8: Secretária Eletrônica
 
 ## Introdução
