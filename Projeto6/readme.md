@@ -85,7 +85,11 @@ A tabela verdade deste decodificador é mostrada abaixo
 Assim, por soma de produtos conseguimos achar a expressão lógica corresponde de cada saída $d$, dadas por
 
 $$
-\begin{cases} d_0 = e_n \cdot s_1' \cdot s_0' \\ d_1 = e_n \cdot s_1' \cdot s_0 \\ d_2 = e_n \cdot s_1 \cdot s_0' \\ d_3 = e_n \cdot s_1 \cdot s_0 \end{cases}
+\begin{cases} d_0 = e_n \cdot s_1' \cdot s_0' \\ 
+d_1 = e_n \cdot s_1' \cdot s_0 \\ 
+d_2 = e_n \cdot s_1 \cdot s_0' \\ 
+d_3 = e_n \cdot s_1 \cdot s_0 
+\end{cases}
 $$
 
 ### Conversor BIN->BCD de 4 Dígitos
