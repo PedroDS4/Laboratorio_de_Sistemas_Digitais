@@ -2,9 +2,8 @@
 
 ## Introdução
 
-O segundo projeto proposto foi, em VHDL e implementação em FPGA, desenvolver a lógica de uma matriz de leds, cujo esquemático é mostrado abaixo:
+O segundo projeto proposto foi, em VHDL e implementação em FPGA, desenvolver a lógica de uma matriz de leds a ser acesa dependendo da entrada binária do circuito.
 
-![Esquemático do Projeto do Somador BCD](figuras/matriz_leds.png)
 
 ## Referencial Teórico
 
