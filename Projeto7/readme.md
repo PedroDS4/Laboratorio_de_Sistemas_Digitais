@@ -40,10 +40,13 @@ A Tabela abaixo apresenta a tabela verdade de um comparador sequencial de 1 bit.
 | 1 | 1 | 0 | 0 | 1 | 0 | 0 | 1 |
 
 Com base na tabela, podemos escrever as expressões lógicas para cada saída utilizando a forma de soma de produtos:
-
-* `out_gt` $$= (A \cdot \overline{B}) + (\overline{A} \cdot \overline{B} \cdot \text{in\_gt}) + (A \cdot B \cdot \text{in\_gt})$$
-* `out_eq` $$= (\overline{A} \cdot \overline{B} + A \cdot B) \cdot \text{in\_eq}$$
-* `out_lt` $$= (\overline{A} \cdot B) + (\overline{A} \cdot \overline{B} \cdot \text{in\_lt}) + (A \cdot B \cdot \text{in\_lt})$$
+$$
+\begin{cases}
+out_gt = (A \cdot \overline{B}) + (\overline{A} \cdot \overline{B} \cdot \text{in\_gt}) + (A \cdot B \cdot \text{in\_gt}) \\
+out_eq = (\overline{A} \cdot \overline{B} + A \cdot B) \cdot \text{in\_eq} \\
+out_lt = (\overline{A} \cdot B) + (\overline{A} \cdot \overline{B} \cdot \text{in\_lt}) + (A \cdot B \cdot \text{in\_lt})
+\end{cases}
+$$
 
 Essas expressões são utilizadas na construção de comparadores maiores (por exemplo, de 10 bits), conectando comparadores de 1 bit em cascata da direita para a esquerda (do bit menos significativo ao mais significativo), propagando os sinais de comparação apropriados.
 
